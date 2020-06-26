@@ -1,6 +1,8 @@
-var express = require('express');
-var port = process.env.PORT || 8080;
-var app = express();
+require('dotenv').config();
+const express = require('express');
+const app = express();
+const http = require('http');
+const signInController = require('./controllers/signInController');
 /**************************
 
 https://expressjs.com/en/guide/database-integration.html
@@ -14,30 +16,65 @@ db.one('SELECT $1 AS value', 123)
   .catch(function (error) {
     console.log('ERROR:', error)
   })
-**************************/
+**************************
+const { Client } = require('pg');
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
-//app.engine('html', require('ejs').renderFile);
+client.connect();
+
+client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+*/
+
 app.set('view engine', 'ejs');
 
+app.get('/db', async (req, res) => {
+  const { Pool } = require('pg');
+  const connectionString = process.env.DATABASE_URL;
+  const pool = new Pool({
+  connectionString: connectionString,
+  ssl: true
+});
+  console.log(connectionString);
+  pool.query('SELECT * FROM note;', (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+      console.log(JSON.stringify(row));
+    }
+    pool.end();
+  });
+});
+
+// SIGN IN
 app.get('/', function (req, res) {
-    res.render('../signIn');
-});
+    res.render('../signIn'); });
+app.post('');
 
+// SIGN UP
 app.get('/signUp', function(req, res) {
-      res.render('../signUp');
-});
+  res.render('../signUp'); });
 
+// HOMEPAGE
 app.get('/homepage', function(req, res) {
-    res.render('../homepage');
-});
+    res.render('../homepage'); });
 
+ // SEND DATA
 app.get('/sendData', function(req, res) {
-    res.render('../sendData');
-});
+    res.render('../sendData'); });
 
+// VIEW DATA
 app.get('/viewData', function(req, res) {
-    res.render('../viewData');
-});
+    res.render('../viewData'); });
 
 app.listen(8080);
 console.log("app listening on port 8080");

@@ -14,8 +14,12 @@
     <label for='passwd'>Password:</label>
     <input type='password' id='passwd'>
     <br>
-    <form action='' method='POST'>
-        <button>Return to sign in</button>
-    </form>
+    <button onclick="submit()">Submit</button>
 </body>
+<script>
+    function submit() {
+        var name = document.getElementById('username').value;
+        var ps = document.getElementById('passwd');
+    }
+</script>
 </html>
