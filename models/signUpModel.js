@@ -6,6 +6,10 @@ const pool = new Pool({
   ssl: true
 });
 
+function getSignUp(req, res) {
+    res.render('../signUp');
+};
+
 function registerUser(name, password) {
     console.log('registering user');
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${name}';`;

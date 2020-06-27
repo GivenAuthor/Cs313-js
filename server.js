@@ -4,10 +4,10 @@ const app = express();
 const http = require('http');
 const signInController = require('./controllers/signInController');
 const signUpController = require('./controllers/signUpController');
-const signUpModel = require('./models/signUpModel');
-
-
 app.set('view engine', 'ejs');
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use('/public', express.static('./public/'));
 
 app.get('/db', async (req, res) => {
   const { Pool } = require('pg');
@@ -32,7 +32,7 @@ app.get('/', function (req, res) {
 
 // SIGN UP
 app.get('/signUp', signUpController.signUp);
-app.post('/signUp', signUpModel.registerUser);
+app.post('/signUp', signUpController.registerUser);
 
 // HOMEPAGE
 app.get('/homepage', function(req, res) {
