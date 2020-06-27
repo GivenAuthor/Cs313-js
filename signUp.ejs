@@ -8,18 +8,13 @@
 <body>
     <h3>Please enter a username and passsword</h3>
     <br>
+    <form action='/signUp' method='POST'>
     <label for='username'>Username:</label>
     <input type='text' id='username'>
     <br>
     <label for='passwd'>Password:</label>
     <input type='password' id='passwd'>
     <br>
-    <button onclick="submit()">Submit</button>
+    </form>
 </body>
-<script>
-    function submit() {
-        var name = document.getElementById('username').value;
-        var ps = document.getElementById('passwd');
-    }
-</script>
 </html>

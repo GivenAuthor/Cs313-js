@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const http = require('http');
-const signInController = require('./controllers/signInController');
+const signInController = require('./models/signUpModel');
 /**************************
 
 https://expressjs.com/en/guide/database-integration.html
@@ -46,7 +46,7 @@ app.get('/db', async (req, res) => {
   ssl: true
 });
   console.log(connectionString);
-  pool.query('SELECT * FROM note;', (err, res) => {
+  pool.query('SELECT * FROM username;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
@@ -58,11 +58,12 @@ app.get('/db', async (req, res) => {
 // SIGN IN
 app.get('/', function (req, res) {
     res.render('../signIn'); });
-app.post('');
 
 // SIGN UP
-app.get('/signUp', function(req, res) {
-  res.render('../signUp'); });
+app.get('/signUp', function (req, res) {
+  res.render('../signUp');
+});
+app.post('/signUp', signInController.registerUser);
 
 // HOMEPAGE
 app.get('/homepage', function(req, res) {
