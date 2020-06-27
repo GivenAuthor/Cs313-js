@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const http = require('http');
-const signInController = require('./models/signUpModel');
+const signUpController = require('./models/signUpModel');
 /**************************
 
 https://expressjs.com/en/guide/database-integration.html
@@ -63,7 +63,7 @@ app.get('/', function (req, res) {
 app.get('/signUp', function (req, res) {
   res.render('../signUp');
 });
-app.post('/signUp', signInController.registerUser);
+app.post('/signUp', signUpController.registerUser);
 
 // HOMEPAGE
 app.get('/homepage', function(req, res) {
