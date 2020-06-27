@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const http = require('http');
-//const signUpController = require('./models/signUpModel');
+const signInController = require('./controllers/signInController');
+const signUpModel = require('./models/signUpModel');
 
 
 app.set('view engine', 'ejs');
@@ -32,7 +33,7 @@ app.get('/', function (req, res) {
 app.get('/signUp', function (req, res) {
   res.render('../signUp');
 });
-//app.post('/signUp', signUpController.registerUser);
+app.post('/signUp', signUpController.registerUser);
 
 // HOMEPAGE
 app.get('/homepage', function(req, res) {
