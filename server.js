@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const http = require('http');
-const signUpController = require('./models/signUpModel');
+//const signUpController = require('./models/signUpModel');
 
 
 app.set('view engine', 'ejs');
