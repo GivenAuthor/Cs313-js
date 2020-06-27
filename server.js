@@ -3,38 +3,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const signUpController = require('./models/signUpModel');
-/**************************
 
-https://expressjs.com/en/guide/database-integration.html
-var pgp = require('pg-promise')
-var db = pgp('postgres://username:password@host:port/database')
-
-db.one('SELECT $1 AS value', 123)
-  .then(function (data) {
-    console.log('DATA:', data.value)
-  })
-  .catch(function (error) {
-    console.log('ERROR:', error)
-  })
-**************************
-const { Client } = require('pg');
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
-
-client.connect();
-
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
-*/
 
 app.set('view engine', 'ejs');
 
@@ -63,7 +32,7 @@ app.get('/', function (req, res) {
 app.get('/signUp', function (req, res) {
   res.render('../signUp');
 });
-app.post('/signUp', signUpController.registerUser);
+//app.post('/signUp', signUpController.registerUser);
 
 // HOMEPAGE
 app.get('/homepage', function(req, res) {
