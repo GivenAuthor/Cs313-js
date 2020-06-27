@@ -30,9 +30,7 @@ app.get('/', function (req, res) {
     res.render('../signIn'); });
 
 // SIGN UP
-app.get('/signUp', function (req, res) {
-  res.render('../signUp');
-});
+app.get('/signUp', signUpController.signUp);
 app.post('/signUp', signUpModel.registerUser);
 
 // HOMEPAGE
