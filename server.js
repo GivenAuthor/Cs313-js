@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const signInController = require('./controllers/signInController');
+const signUpController = require('./controllers/signUpController');
 const signUpModel = require('./models/signUpModel');
 
 
