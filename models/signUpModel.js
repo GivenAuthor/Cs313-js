@@ -6,7 +6,7 @@ const pool = new Pool({
   ssl: true
 });
 
-function getSignUp(req, res) {
+function signUp(req, res) {
     res.render('../signUp');
 };
 
@@ -42,5 +42,6 @@ function registerUser(name, password) {
 }
 
 module.exports = {
-    registerUser: registerUser
+    registerUser: registerUser,
+    signUp: signUp
 }
