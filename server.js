@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const signInController = require('./controllers/signInController');
-const signUpController = require('./controllers/signUpController');
+const signUpController = require('./controllers/signUpController.js');
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
