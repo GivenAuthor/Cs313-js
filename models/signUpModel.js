@@ -6,10 +6,6 @@ const pool = new Pool({
   ssl: true
 });
 
-function signUp(req, res) {
-    res.render('../signUp');
-};
-
 function registerUser(name, password) {
     console.log('registering user');
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${name}';`;
@@ -42,6 +38,5 @@ function registerUser(name, password) {
 }
 
 module.exports = {
-    registerUser: registerUser,
-    signUp: signUp
+    registerUser: registerUser
 }
