@@ -3,7 +3,11 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const signInController = require('./controllers/signInController');
+const signInModel = require('./models/signInModel');
 const signUpController = require('./controllers/signUpController');
+const signUpModel = require('./models/signUpModel');
+const homepageController = require('./controllers/homepageController');
+const homepageModel = require('./models/homepageModel');
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -27,16 +31,16 @@ app.get('/db', async (req, res) => {
 });
 
 // SIGN IN
-app.get('/', function (req, res) {
-    res.render('../signIn'); });
+app.get('/', homepageController.getHome);
+app.post('/', signInModel.loginUser);
 
 // SIGN UP
 app.get('/signUp', signUpController.signUp);
-app.post('/signUp', signUpController.registerUser);
+app.post('/signUp', signUpModel.registerUser);
 
 // HOMEPAGE
-app.get('/homepage', function(req, res) {
-    res.render('../homepage'); });
+app.get('/homepage', homepageController.getHome);
+app.post('/homepage', homepageModel.dbRequest, homepageModel.dbPush);
 
  // SEND DATA
 app.get('/sendData', function(req, res) {
