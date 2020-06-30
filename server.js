@@ -31,7 +31,7 @@ app.get('/db', async (req, res) => {
 });
 
 // SIGN IN
-app.get('/', homepageController.getHome);
+app.get('/', signInController.signIn);
 app.post('/', signInModel.loginUser);
 
 // SIGN UP
@@ -42,13 +42,14 @@ app.post('/signUp', signUpModel.registerUser);
 app.get('/homepage', homepageController.getHome);
 app.post('/homepage', homepageModel.dbRequest, homepageModel.dbPush);
 
- // SEND DATA
+ /* SEND DATA
 app.get('/sendData', function(req, res) {
     res.render('../sendData'); });
 
 // VIEW DATA
 app.get('/viewData', function(req, res) {
     res.render('../viewData'); });
+    */
 
 app.listen(8080);
 console.log("app listening on port 8080");
