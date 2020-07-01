@@ -1,5 +1,7 @@
 require('dotenv').config();
 const express = require('express');
+let path = require('path');
+let port = process.env.PORT || 8080;
 const app = express();
 const http = require('http');
 const signInController = require('./controllers/signInController');
@@ -31,8 +33,8 @@ app.get('/db', async (req, res) => {
 });
 
 // SIGN IN
-app.get('/signIn', signInController.signIn);
-app.post('/signIn', signInModel.loginUser);
+app.get('/', signInController.signIn);
+app.post('/', signInModel.loginUser);
 
 // SIGN UP
 app.get('/signUp', signUpController.signUp);
@@ -51,5 +53,5 @@ app.get('/viewData', function(req, res) {
     res.render('../viewData'); });
     */
 
-app.listen(8080);
+app.listen(port);
 console.log("app listening on port 8080");
