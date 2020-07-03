@@ -7,34 +7,18 @@
 </head>
 <body>
     <h1>Welcome! Please Sign in</h1>
+    <form action = '/signIn' method='POST'>
     <label for='name'>Username:</label>
     <input type='text' id='name'>
     <br>
     <label for='passwd'>Password:</label>
     <input type='password' id='passwd'>
     <br>
-    <button onclick="verify()" value='sign in'>Sign in</button>
+    <button type="submit">Sign in</button>
+    </form>
 
     <br>
     <h3>No account?</h3>
     <button onclick="window.location.href='/signUp'">Sign up</button>
-
-    <script>
-        function verify() {
-            // get user's username and passwd
-            var name = document.getElementById("name").value;
-            console.log(name);
-            var passwd = document.getElementById("passwd").value;
-            console.log(passwd);
-            // connect to db
-            // query the db for it
-            // if exists, send to next page, else alert user
-            
-            // placeholder variable for result of sb interaction
-            var matches = true;
-            if (matches == true)
-                window.location.href="/homepage"
-        }
-    </script>
 </body>
 </html>
