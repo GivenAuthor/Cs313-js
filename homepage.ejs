@@ -8,8 +8,11 @@
 <body>
     <h1>Welcome</h1>
     <br>
+    <form>
     <button onclick="getData()">See previous days</button>
+    </form>
     <br>
+    <form action='/homepage' method='POST'>
     <label for='date'>Date:</label>
     <input type='date' id='date' name='date'>
     <br>
@@ -20,23 +23,7 @@
     <input type='text' id='note' name='note'>
     <br>
     <button onclick="submitData()">Submit</button>
+    </form>
 
-    <script>
-        function getData() {
-            // connect to db
-            // get the previous data
-            // display it
-        }
-
-        function submitData() {
-            // connect to db
-            var date = document.getElementById('date').value;
-            console.log(date);
-            var rating = document.getElementById('rating').value;
-            console.log(rating);
-            var note = document.getElementById('note').value;
-            console.log(note);
-        }
-    </script>
 </body>
 </html>
