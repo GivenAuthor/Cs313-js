@@ -11,7 +11,7 @@ function loginUser(name, password) {
     let sql = `SELECT user_name.username, account_password.password_contents 
     FROM user_name 
     INNER JOIN account_password 
-    ON username.user_id=account_password.password_id;`;
+    ON user_name.user_id=account_password.password_id;`;
     pool.query(sql, (err, res) => {
         if (err) {
             console.log('select query error: ');
@@ -19,7 +19,7 @@ function loginUser(name, password) {
         }
         for (row in res.rows) {
             if (row.username == name && row.password_contents == password)
-            return true;
+            res.render('../homepage');
         }
         return false;
     });
