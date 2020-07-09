@@ -8,22 +8,13 @@
 <body>
     <h1>Welcome</h1>
     <br>
-    <form>
-    <button onclick="getData()">See previous days</button>
-    </form>
-    <br>
     <form action='/homepage' method='POST'>
-    <label for='date'>Date:</label>
-    <input type='date' id='date' name='date'>
-    <br>
-    <label for='rating'>Day rating:</label>
-    <input type='number' id='rating' name='rating'>
-    <br>
-    <label for='note'>Note info:</label>
-    <input type='text' id='note' name='note'>
-    <br>
-    <button onclick="submitData()">Submit</button>
+    <button type="submit">See previous days</button>
     </form>
-
+    <br>
+    <h2>Add data for the day</h2>
+    <form action='/submission' method='GET'>
+    <button type="submit">Add Info</button>
+    </form>
 </body>
 </html>

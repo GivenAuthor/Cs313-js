@@ -10,6 +10,8 @@ const signUpController = require('./controllers/signUpController');
 const signUpModel = require('./models/signUpModel');
 const homepageController = require('./controllers/homepageController');
 const homepageModel = require('./models/homepageModel');
+const submissionController = require('./controllers/submissionController');
+const submissionModel = require('./models/submissionModel');
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -42,16 +44,11 @@ app.post('/signUp', signUpModel.registerUser);
 
 // HOMEPAGE
 app.get('/homepage', homepageController.getHome);
-app.post('/homepage', homepageModel.dbRequest, homepageModel.dbPush);
+app.post('/homepage', homepageModel.dbRequest);
 
- /* SEND DATA
-app.get('/sendData', function(req, res) {
-    res.render('../sendData'); });
-
-// VIEW DATA
-app.get('/viewData', function(req, res) {
-    res.render('../viewData'); });
-    */
+// SUBMISSION PAGE
+app.get('/submission', submissionController.getSubmission);
+app.post('/submission', submissionModel.dbPush);
 
 app.listen(port);
 console.log("app listening on port 8080");
