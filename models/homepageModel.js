@@ -8,6 +8,17 @@ const pool = new Pool({
 
 function dbRequest() {
     console.log('requesting info from db');
+    let sql = `SELECT note.note_contents, rating.day_rating, day.day_date
+    FROM note
+    INNER JOIN day ON note.note_id = day.day_id
+    LEFT JOIN rating ON note.note_id = rating.rating_id
+    WHERE note.note_id != 0;`;
+    pool.query(sql, (err, res) => {
+      if (err)
+      console.log('dbRequestError:');
+      return console.log(err);
+      
+    });
 }
 
 module.exports = {

@@ -8,13 +8,36 @@
 <body>
     <h1>Welcome</h1>
     <br>
-    <form action='/homepage' method='POST'>
-    <button type="submit">See previous days</button>
-    </form>
+    <button id='btn' type="submit">See previous days</button>
     <br>
     <h2>Add data for the day</h2>
     <form action='/submission' method='GET'>
     <button type="submit">Add Info</button>
     </form>
 </body>
+<script>
+    function submit() {
+        button.addEventListener('btn', () => {
+            getData();
+        });
+        
+        function getData(){
+            let response = await fetch([enpoint_url], [header_info]); // look this up because I don't remember exactly how fetch works.
+            
+            if (response.data != null) {
+                // build table
+                let tr = document.createAttribute('tr');
+                response.data.forEach((item) => {
+                    let td = document.createAttribute('td');
+                    td.value = item.name;
+                    tr.appendChild(td);
+                });
+            let table = document.createAttribute('table');
+            document.getElementsByTagName('body').appendChild(table);
+        } else {
+            return null;
+        }
+    }
+}
+</script>
 </html>
