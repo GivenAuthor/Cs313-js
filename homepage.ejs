@@ -23,17 +23,19 @@
         });
         */
         
-        async function getData(){
-            console.log('Ive been clicked');
+        async function getData(url = '', data = {}){
             let url = '/homepage';
-            let response = await fetch(url, {
-                method: 'POST'
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
             });
-            postData('/homepage')
+            return response.json();
+        }
+            getData('/homepage', {data: 'dummy'})
             .then( data => {
                 console.log(response.data);
-            if (response.data != null) {
-                // build table
                 let tr = document.createAttribute('tr');
                 response.data.forEach((item) => {
                     let td = document.createAttribute('td');
@@ -42,10 +44,6 @@
                 });
             let table = document.createAttribute('table');
             document.getElementsByTagName('body').appendChild(table);
-        } else {
-            return null;
-        }
     });
-    }
 </script>
 </html>
