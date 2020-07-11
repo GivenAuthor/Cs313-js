@@ -19,7 +19,7 @@ function dbRequest() {
         console.log('dbRequestError:');
         return console.log(err);
       }
-      console.log(Jres.rows);
+      console.log(res.rows);
       return (res.rows);
     });
 }
