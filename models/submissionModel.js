@@ -7,7 +7,8 @@ const pool = new Pool({
 });
 
 function dbPush(rating, date, note) {
-    console.log('push to db')
+    console.log('push to db');
+    pool.connect();
     let sql = `INSERT INTO note (note_contents) VALUES ('${note}');`;
     pool.query(sql, (err, res) => {
         if (err) {

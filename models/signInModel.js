@@ -8,6 +8,7 @@ const pool = new Pool({
 
 function loginUser(name, password) {
     console.log('logging in user');
+    pool.connect();
     let sql = `SELECT user_name.username, account_password.password_contents 
     FROM user_name 
     INNER JOIN account_password 

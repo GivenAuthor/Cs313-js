@@ -8,6 +8,7 @@ const pool = new Pool({
 
 function registerUser(name, password) {
     console.log('registering user');
+    pool.connect();
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${name}';`;
     pool.query(sql, (err, res) => {
         if (err) {

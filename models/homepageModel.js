@@ -7,6 +7,7 @@ const pool = new Pool({
 });
 
 function dbRequest() {
+  pool.connect();
     console.log('requesting info from db');
     let sql = `SELECT note.note_contents, rating.day_rating, day.day_date
     FROM note
