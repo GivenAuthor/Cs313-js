@@ -39,8 +39,10 @@
             });
             return response.json();
         }
-            getData('/homepage', { data: 4 })
+            getData('/homepage', { answer: 4 })
             .then( data => {
+                console.log(data)
+                /*
                 console.log(response.data);
                 let tr = document.createAttribute('tr');
                 response.data.forEach((item) => {
@@ -50,6 +52,7 @@
                 });
             let table = document.createAttribute('table');
             document.getElementsByTagName('body').appendChild(table);
+            */
     });
 </script>
 </html>
