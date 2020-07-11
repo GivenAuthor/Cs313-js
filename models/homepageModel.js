@@ -6,6 +6,10 @@ const pool = new Pool({
   ssl: true
 });
 
+function callback(data) {
+  res.status(200).JSON;
+}
+
 function dbRequest() {
   pool.connect();
     console.log('requesting info from db');
@@ -19,7 +23,7 @@ function dbRequest() {
         return console.log(err);
       }
       console.log(res.rows);
-      return (res.rows);
+      callback(res.rows);
     });
 }
 
