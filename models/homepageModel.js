@@ -16,7 +16,7 @@ function dbRequest() {
     pool.query(sql, (err, res) => {
       if (err) {
         console.log('dbRequestError:');
-        //return console.log(err);
+        return console.log(err);
       }
       console.log(JSON.parse(res.rows));
       return (JSON.parse(res.rows));
