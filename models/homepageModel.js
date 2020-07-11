@@ -18,6 +18,7 @@ function dbRequest() {
         console.log('dbRequestError:');
         return console.log(err);
       }
+      console.log(JSON.parse(res.rows));
       return (JSON.parse(res.rows));
     });
 }

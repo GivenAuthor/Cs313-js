@@ -21,9 +21,13 @@
             getData();
         });
         
-        function getData(){
-            let response = await fetch([enpoint_url], [header_info]); // look this up because I don't remember exactly how fetch works.
-            
+        async function getData(){
+            let url = '/homepage';
+            let response = await fetch(url, {
+                method: 'POST'
+            }); // look this up because I don't remember exactly how fetch works.
+            postData('/homepage')
+            .then( data => {
             if (response.data != null) {
                 // build table
                 let tr = document.createAttribute('tr');
@@ -37,6 +41,7 @@
         } else {
             return null;
         }
+    });
     }
 }
 </script>
