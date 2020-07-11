@@ -23,17 +23,22 @@
         });
         */
         
-        async function getData(url = '', data = {}){
+        async function getData(url = '', data = {}) {
             const response = await fetch(url, {
                 method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache', 
+                credentials: 'same-origin', 
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                redirect: 'follow', 
+                referrerPolicy: 'no-referrer',
                 body: JSON.stringify(data)
             });
             return response.json();
         }
-            getData('/homepage', {data: 'dummy'})
+            getData('/homepage', { data: 4 })
             .then( data => {
                 console.log(response.data);
                 let tr = document.createAttribute('tr');
