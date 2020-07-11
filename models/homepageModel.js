@@ -14,10 +14,11 @@ function dbRequest() {
     LEFT JOIN rating ON note.note_id = rating.rating_id
     WHERE note.note_id != 0;`;
     pool.query(sql, (err, res) => {
-      if (err)
-      console.log('dbRequestError:');
-      return console.log(err);
-      
+      if (err) {
+        console.log('dbRequestError:');
+        return console.log(err);
+      }
+      return (JSON.parse(res.rows));
     });
 }
 
