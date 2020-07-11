@@ -22,6 +22,7 @@
         });
         
         async function getData(){
+            console.log('Ive been clicked');
             let url = '/homepage';
             let response = await fetch(url, {
                 method: 'POST'
