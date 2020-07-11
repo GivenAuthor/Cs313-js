@@ -28,6 +28,7 @@
             });
             postData('/homepage')
             .then( data => {
+                console.log(response.data);
             if (response.data != null) {
                 // build table
                 let tr = document.createAttribute('tr');
