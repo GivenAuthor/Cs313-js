@@ -25,7 +25,7 @@
             let url = '/homepage';
             let response = await fetch(url, {
                 method: 'POST'
-            }); // look this up because I don't remember exactly how fetch works.
+            });
             postData('/homepage')
             .then( data => {
             if (response.data != null) {
