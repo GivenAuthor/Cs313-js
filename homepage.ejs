@@ -41,7 +41,12 @@
                     console.log(row);
                 });
                 let responseNew = Object.entries(response);
+                responseNew[1].forEach((row) => {
+                    console.log(row);
+                });
                 console.log(typeof responseNew);
+
+
                 let tr = document.createAttribute('tr');
                 data.forEach((item) => {
                     let td = document.createAttribute('td');
