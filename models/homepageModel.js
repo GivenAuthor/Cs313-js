@@ -12,12 +12,19 @@ function dbRequest(req, res) {
     let sql = `SELECT note.note_contents, rating.day_rating, day.day_date
     FROM note
     INNER JOIN day ON note.note_id = day.day_id
-    LEFT JOIN rating ON note.note_id = rating.rating_id;`;
+    LEFT JOIN rating ON note.note_id = rating.rating_id`;
     pool.query(sql, (err, result) => {
       if (err)
         res.status(400).json({ message: `Error: ${err}`, data: null });
-      else
-        res.status(200).json({ message: 'Success', data: result.data });
+      else {
+        let data = [];
+        result.rows.forEach(row => {
+          data.push(row);
+        });
+
+        res.status(200).json({ message: 'Success', data: data });
+      }
+
     });
 }
 
