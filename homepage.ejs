@@ -69,12 +69,11 @@
 
                 rows.forEach(row => {
                     let tr = document.createAttribute('tr');
-                    let td1 = document.createAttribute('td');
-                    td1.setAttribute('value', row.title);
-                    let td2 = document.createAttribute('td');
+                    let td1 = document.createAttribute('td').toString();
+                    td1.innerHTML('value', row.title);
+                    let td2 = document.createAttribute('td').toString();
                     td2.innerHTML = row.rating;
-                    console.log(typeof td2);
-                    let td3 = document.createAttribute('td');
+                    let td3 = document.createAttribute('td').toString();
                     td3.innerHTML = row.date;
                     tr.appendChild(td1);
                     tr.appendChild(td2);
