@@ -7,6 +7,7 @@ const pool = new Pool({
 });
 
 function callback(data) {
+  console.log(data);
   res.status(200).JSON;
 }
 
