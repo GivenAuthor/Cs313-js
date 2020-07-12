@@ -44,7 +44,9 @@ app.post('/signUp', signUpModel.registerUser);
 
 // HOMEPAGE
 app.get('/homepage', homepageController.getHome);
-app.post('/homepage', homepageModel.dbRequest);
+app.post('/homepage', homepageModel.dbRequest(req, res, (data) => {
+  res.status(200).JSON(data);
+}));
 
 // SUBMISSION PAGE
 app.get('/submission', submissionController.getSubmission);
