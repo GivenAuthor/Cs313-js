@@ -42,17 +42,11 @@
                 });
                 let responseNew = Object.entries(response);
                 responseNew.forEach(([key, value]) => {
-
-if (key == 'data') {
-
-    value.forEach(row => {
-
-        console.log(row);
-
-    });
-
-}
-
+                    if (key == 'data') {
+                        value.forEach(row => {
+                            console.log(row);
+                        });
+                    }
 });
                 console.log(typeof responseNew);
 
