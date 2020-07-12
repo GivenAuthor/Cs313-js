@@ -37,7 +37,10 @@
                 console.log(response.data);
                 console.log(response.data[0]);
 
-                let data = JSON.parse(response.data);
+                let rows = response.data.map((row) => {
+                    console.log(row);
+                });
+                let data = response.data;
                 let tr = document.createAttribute('tr');
                 data.forEach((item) => {
                     let td = document.createAttribute('td');
