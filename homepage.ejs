@@ -70,7 +70,7 @@
                 rows.forEach(row => {
                     let tr = document.createAttribute('tr');
                     let td1 = document.createAttribute('td').toString();
-                    td1.innerHTML('value', row.title);
+                    td1.innerHTML = row.title;
                     let td2 = document.createAttribute('td').toString();
                     td2.innerHTML = row.rating;
                     let td3 = document.createAttribute('td').toString();
