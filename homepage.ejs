@@ -70,11 +70,11 @@
                     rows.forEach(row => {
                     let tr = document.createElement('tr');
                     let td1 = document.createElement('td');
-                    td1.innerHTML = tn1;
+                    td1.innerHTML = row.title;
                     let td2 = document.createElement('td');
-                    td2.innerHTML = tn2;
+                    td2.innerHTML = row.rating;
                     let td3 = document.createElement('td');
-                    td3.innerHTML = tn3;
+                    td3.innerHTML = row.date;
                     tr.appendChild(td1);
                     tr.appendChild(td2);
                     tr.appendChild(td3);
