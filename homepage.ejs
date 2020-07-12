@@ -66,20 +66,21 @@
                 });
 
                 let table = document.getElementById('itemTable');
-
-                rows.forEach(row => {
+                if (table != null) {
+                    rows.forEach(row => {
                     let tr = document.createElement('tr');
                     let td1 = document.createElement('td');
-                    td1.innerHTML = row.title.toString();
+                    td1.innerHTML = tn1;
                     let td2 = document.createElement('td');
-                    td2.innerHTML = row.rating.toString();
+                    td2.innerHTML = tn2;
                     let td3 = document.createElement('td');
-                    td3.innerHTML = row.date.toString();
+                    td3.innerHTML = tn3;
                     tr.appendChild(td1);
                     tr.appendChild(td2);
                     tr.appendChild(td3);
                     table.appendChild(tr);
                 });
+                }
     });
 </script>
 </html>
