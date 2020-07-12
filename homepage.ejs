@@ -35,7 +35,7 @@
             .then( response => {
                 console.log(response);
                 console.log(response.data);
-                console.log(JSON.parse(response.data[0]));
+                console.log(response.data[0]);
 
                 let data = JSON.parse(response.data);
                 let tr = document.createAttribute('tr');
