@@ -32,10 +32,11 @@
             return response.json();
         }
             getData('https://arcane-peak-85886.herokuapp.com/homepage',)
-            .then( data => {
-                console.log(data);
+            .then( response => {
+                console.log(response);
+
                 let tr = document.createAttribute('tr');
-                data.forEach((item) => {
+                response.forEach((item) => {
                     let td = document.createAttribute('td');
                     td.value = item.name;
                     tr.appendChild(td);
