@@ -6,11 +6,6 @@ const pool = new Pool({
   ssl: true
 });
 
-function callback(data) {
-  console.log(data);
-  res.JSON;
-}
-
 function dbRequest() {
   pool.connect();
     console.log('requesting info from db');
