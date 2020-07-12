@@ -14,6 +14,13 @@
     <form action='/submission' method='GET'>
     <button type="submit">Add Info</button>
     </form>
+    <table id='itemTable'>
+        <thead>
+            <th>Title</th>
+            <th>Rating</th>
+            <th>Date</th>
+        </thead>
+    </table>
 </body>
 <script>
     /*
@@ -51,19 +58,28 @@
 
                 let rows = data.map(row => {
                     // do the building in here.
+                    return {
+                        title: row.note_contents,
+                        rating: row.day_rating,
+                        date: Date(row.day_date),
+                    };
                 });
 
-                /*
-                console.log(response.data);
-                let tr = document.createAttribute('tr');
-                response.data.forEach((item) => {
-                    let td = document.createAttribute('td');
-                    td.value = item.name;
-                    tr.appendChild(td);
+                let table = document.getElementById('itemTable');
+
+                rows.forEach(row => {
+                    let tr = document.createAttribute('tr');
+                    let td1 = document.createAttribute('td');
+                    td1.value = item.title;
+                    let td2 = document.createAttribute('td');
+                    td2.value = item.title;
+                    let td3 = document.createAttribute('td');
+                    td3.value = item.title;
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    table.appendChild(tr);
                 });
-            let table = document.createAttribute('table');
-            document.getElementsByTagName('body').appendChild(table);
-            */
     });
 </script>
 </html>
