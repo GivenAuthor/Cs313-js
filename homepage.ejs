@@ -16,12 +16,6 @@
     </form>
 </body>
 <script>
-    /*
-    function submit() {
-        button.addEventListener.('btn', () => {
-            getData();
-        });
-        */
         
         async function getData(url = '') {
             const response = await fetch(url, {
@@ -39,7 +33,7 @@
         }
             getData('https://arcane-peak-85886.herokuapp.com/homepage',)
             .then( data => {
-                console.log(response.data);
+                console.log(data);
                 /*
                 console.log(response.data);
                 let tr = document.createAttribute('tr');
