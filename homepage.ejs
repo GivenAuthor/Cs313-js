@@ -35,8 +35,9 @@
             .then( response => {
                 console.log(response);
 
+                let data = JSON.parse(response.data);
                 let tr = document.createAttribute('tr');
-                response.forEach((item) => {
+                data.forEach((item) => {
                     let td = document.createAttribute('td');
                     td.value = item.name;
                     tr.appendChild(td);
