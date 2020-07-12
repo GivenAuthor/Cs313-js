@@ -29,7 +29,7 @@
                 redirect: 'follow', 
                 referrerPolicy: 'no-referrer'
             });
-            return response.data;
+            return response.json();
         }
             getData('https://arcane-peak-85886.herokuapp.com/homepage',)
             .then( data => {
