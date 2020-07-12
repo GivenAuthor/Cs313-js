@@ -23,8 +23,8 @@ function dbRequest(req, res) {
         console.log('dbRequestError:');
         return console.log(err);
       }
-      console.log(res.rows);
-      callback(res.rows);
+      console.log(result.rows);
+      callback(result.rows);
     });
 }
 
