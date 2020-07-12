@@ -40,7 +40,8 @@
                 let rows = response.data.map((row) => {
                     console.log(row);
                 });
-                let data = response.data;
+                let data = response.data.entries();
+                console.log(typeof data);
                 let tr = document.createAttribute('tr');
                 data.forEach((item) => {
                     let td = document.createAttribute('td');
