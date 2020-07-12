@@ -7,7 +7,7 @@ const pool = new Pool({
 });
 
 function callback(data) {
-  data.status(200).JSON;
+  res.status(200).JSON;
 }
 
 function dbRequest() {
