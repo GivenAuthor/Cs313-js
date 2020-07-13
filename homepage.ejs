@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="homepageStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
@@ -23,64 +24,55 @@
     </table>
 </body>
 <script>
-    /*
-    function submit() {
-        button.addEventListener.('btn', () => {
-            getData();
-        });
-        */
-
-        async function getData(url = '') {
-            const response = await fetch(url, {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'no-cache',
-                credentials: 'same-origin',
-                headers: {
-                    'Content-Type': 'application/json'
+    async function getData(url = '') {
+        const response = await fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
                 },
                 redirect: 'follow',
                 referrerPolicy: 'no-referrer'
-            });
+                });
             return response.json();
         }
-            getData('https://arcane-peak-85886.herokuapp.com/homepage',)
-            .then( response => {
-                console.log(response.data);
-                let responseNew = Object.entries(response);
-                let data;
-
-                responseNew.forEach(([key, value]) => {
-                    if (key == 'data') {
-                        data = value;
+        getData('https://arcane-peak-85886.herokuapp.com/homepage',)
+        .then( response => {
+            console.log(response.data);
+            let responseNew = Object.entries(response);
+            let data;
+            responseNew.forEach(([key, value]) => {
+                if (key == 'data') {
+                    data = value;
                     }
                 });
-
                 let rows = data.map(row => {
                     // do the building in here.
                     return {
                         title: row.note_contents,
                         rating: row.day_rating,
                         date: Date(row.day_date),
-                    };
-                });
+                        };
+                    });
 
-                let table = document.getElementById('itemTable');
-                if (table != null) {
-                    rows.forEach(row => {
-                    let tr = document.createElement('tr');
-                    let td1 = document.createElement('td');
-                    td1.innerHTML = row.title;
-                    let td2 = document.createElement('td');
-                    td2.innerHTML = row.rating;
-                    let td3 = document.createElement('td');
-                    td3.innerHTML = row.date;
-                    tr.appendChild(td1);
-                    tr.appendChild(td2);
-                    tr.appendChild(td3);
-                    table.appendChild(tr);
+        let table = document.getElementById('itemTable');
+        if (table != null) {
+            rows.forEach(row => {
+                let tr = document.createElement('tr');
+                let td1 = document.createElement('td');
+                td1.innerHTML = row.title;
+                let td2 = document.createElement('td');
+                td2.innerHTML = row.rating;
+                let td3 = document.createElement('td');
+                td3.innerHTML = row.date;
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                table.appendChild(tr);
                 });
-                }
+            }
     });
 </script>
 </html>
