@@ -8,6 +8,8 @@ const pool = new Pool({
 
 function loginUser(name, password) {
     console.log('logging in user');
+    console.log(name);
+    console.log(password);
     pool.connect();
     let sql = `SELECT user_name.username, account_password.password_contents 
     FROM user_name 

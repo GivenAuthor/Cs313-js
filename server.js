@@ -36,7 +36,7 @@ app.get('/db', async (req, res) => {
 
 // SIGN IN
 app.get('/', signInController.signIn);
-app.post('/', signInModel.loginUser);
+app.post('/signIn', signInModel.loginUser);
 
 // SIGN UP
 app.get('/signUp', signUpController.signUp);
