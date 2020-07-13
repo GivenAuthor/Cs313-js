@@ -8,6 +8,7 @@ const pool = new Pool({
 
 function loginUser(name, password) {
     console.log('logging in user');
+    return false;
     console.log(name);
     console.log(password);
     pool.connect();
