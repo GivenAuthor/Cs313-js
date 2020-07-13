@@ -6,19 +6,19 @@
     <title>Sign In</title>
 </head>
 <body>
-    <h1 style='text-align: center;'>Welcome! Please Sign In</h1>
+    <h1>Welcome! Please Sign In</h1>
     <form action = '/signIn' method='POST'>
-    <label display='inline-block'; style='text-align: center;' for='name'>Username:</label>
+    <label for='name'>Username:</label>
     <input type='text' id='name'>
     <br>
-    <label style='justify-content: center;' for='passwd'>Password:</label>
+    <label for='passwd'>Password:</label>
     <input  type='password' id='passwd'>
     <br>
-    <button style='justify-content: center;'type="submit">Sign in</button>
+    <button type="submit">Sign in</button>
     </form>
 
     <br>
-    <h3 style='text-align: center;'>No account?</h3>
-    <button style='text-align: center;display: inline-block;'onclick="window.location.href='/signUp'">Sign up</button>
+    <h3>No account?</h3>
+    <button onclick="window.location.href='/signUp'">Sign up</button>
 </body>
 </html>
