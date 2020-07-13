@@ -2,24 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./signInStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
 </head>
 <body>
-    <h1 style='text-align: center;'>Welcome! Please Sign in</h1>
+    <h1 style='text-align: center;'>Welcome! Please Sign In</h1>
     <form action = '/signIn' method='POST'>
-    <label for='name'>Username:</label>
-    <input type='text' id='name'>
+    <label style='text-align: center;' for='name'>Username:</label>
+    <input style='text-align: center;' type='text' id='name'>
     <br>
-    <label for='passwd'>Password:</label>
-    <input type='password' id='passwd'>
+    <label style='text-align: center;' for='passwd'>Password:</label>
+    <input style='text-align: center;' type='password' id='passwd'>
     <br>
-    <button type="submit">Sign in</button>
+    <button style='text-align: center;'type="submit">Sign in</button>
     </form>
 
     <br>
-    <h3>No account?</h3>
-    <button onclick="window.location.href='/signUp'">Sign up</button>
+    <h3 style='text-align: center;'>No account?</h3>
+    <button style='text-align: center;' onclick="window.location.href='/signUp'">Sign up</button>
 </body>
 </html>
