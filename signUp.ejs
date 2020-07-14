@@ -18,4 +18,26 @@
     <button type="submit">Sign Up</button>
     </form>
 </body>
+<script>
+    async function signUp() {
+        let name = document.getElementById('username').value;
+        let pswd = document.getElementById('passwd').value;
+        const data = { username: `${name}`, password: `${pswd}`};
+        
+        fetch('https://arcane-peak-85886.herokuapp.com/signUp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(res => {
+            console.log('Query successful', res);
+        })
+        .catch((error) => {
+            console.error('Error:', err);
+        });
+    }
+</script>
 </html>
