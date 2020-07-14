@@ -7,18 +7,41 @@
 </head>
 <body>
     <h1>Welcome! Please Sign In</h1>
-    <form action = '/' method='POST'>
     <label for='name'>Username:</label>
     <input type='text' id='name'>
     <br>
     <label for='passwd'>Password:</label>
     <input  type='password' id='passwd'>
     <br>
-    <button type="submit">Sign in</button>
-    </form>
+    <button onclick='login()'>Sign in</button>
 
     <br>
     <h3>No account?</h3>
     <button onclick="window.location.href='/signUp'">Sign up</button>
 </body>
+<script>
+    async function login() {
+
+        let name = document.getElementById('name');
+        let pswd = document.getElementById('passswd');
+        const data = { username: `${name}`, password: `${passwd}`};
+        console.log(data);
+        /*
+        fetch('https://arcane-peak-85886.herokuapp.com/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(res => {
+            console.log('Query successful', res);
+        })
+        .catch((error) => {
+            console.error('Error:', err);
+        });
+        */
+    }
+</script>
 </html>
