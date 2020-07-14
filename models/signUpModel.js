@@ -18,13 +18,6 @@ function registerUser(name, password) {
             if (row.username == name)
             return false;
         }
-    let insert = `INSERT INTO user_name (username) VALUES ('${name}');`;
-    pool.query(insert, (err, res) => {
-        if (err) {
-            console.log('Username insertion error');
-            return console.log(err);
-        }
-        console.log('Inserted username into db');
     });
     let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${password}');`;
     pool.query(insertPassword, (err, res) => {
@@ -34,6 +27,13 @@ function registerUser(name, password) {
         }
         console.log('Inserted password into db');
     });
+    let insert = `INSERT INTO user_name (username) VALUES ('${name}');`;
+    pool.query(insert, (err, res) => {
+        if (err) {
+            console.log('Username insertion error');
+            return console.log(err);
+        }
+        console.log('Inserted username into db');
     });
 }
 
