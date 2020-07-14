@@ -6,7 +6,10 @@ const pool = new Pool({
   ssl: true
 });
 
-function registerUser(name, password) {
+function registerUser(data) {
+    const info = JSON.parse(data);
+    console.log(info.username);
+    console.log(info.password);
     console.log('registering user');
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${name}';`;
     pool.query(sql, (err, res) => {
