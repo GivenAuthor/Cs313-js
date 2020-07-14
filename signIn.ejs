@@ -22,7 +22,7 @@
 <script>
     async function login() {
 
-        let name = document.getElementById('name').value;
+        let name = document.getElementById('name').innerHTML;
         let pswd = document.getElementById('passswd').value;
         const data = { username: `${name}`, password: `${passwd}`};
         console.log(data);
