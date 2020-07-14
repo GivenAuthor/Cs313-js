@@ -6,7 +6,6 @@
     <title>Home</title>
 </head>
 <body>
-    <form action='/submission' method='POST'>
         <label for='date'>Date:</label>
         <input type='date' id='date' name='date'>
         <br>
@@ -16,7 +15,30 @@
         <label for='note'>Note info:</label>
         <input type='text' id='note' name='note'>
         <br>
-        <button type="submit">Submit</button>
-        </form>
+        <button onclick='submit()'>Submit</button>
 </body>
+<script>
+    async function submit() {
+        let date = document.getElementById('date').value;
+        let rating = document.getElementById('rating').value;
+        let note = document.getElementById('note').value;
+        const data = { day: `${date}`, rating: `${rating}`, note: `note`};
+
+
+        fetch('https://arcane-peak-85886.herokuapp.com/submission', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(res => {
+            console.log('Query successful', res);
+        })
+        .catch((err) => {
+            console.error('Error:', err);
+        });
+    }
+</script>
 </html>

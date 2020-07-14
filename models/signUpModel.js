@@ -11,7 +11,7 @@ function registerUser(data) {
     console.log(info.username);
     console.log(info.password);
     console.log('registering user');
-    let sql = `SELECT username FROM user_name WHERE USERNAME = '${name}';`;
+    let sql = `SELECT username FROM user_name WHERE USERNAME = '${info.username}';`;
     pool.query(sql, (err, res) => {
         if (err) {
             console.log("Query Error");
@@ -22,7 +22,7 @@ function registerUser(data) {
             return false;
         }
     });
-    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${password}');`;
+    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${info.password}');`;
     pool.query(insertPassword, (err, res) => {
         if (err) {
             console.log('Password insertion error');
@@ -30,7 +30,7 @@ function registerUser(data) {
         }
         console.log('Inserted password into db');
     });
-    let insert = `INSERT INTO user_name (username) VALUES ('${name}');`;
+    let insert = `INSERT INTO user_name (username) VALUES ('${info.username}');`;
     pool.query(insert, (err, res) => {
         if (err) {
             console.log('Username insertion error');
