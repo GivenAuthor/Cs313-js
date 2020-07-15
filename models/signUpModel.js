@@ -9,9 +9,9 @@ const pool = new Pool({
 function registerUser(data) {
     console.log('registering user');
     console.log(data);
-    const info = JSON.parse(data);
-    console.log(info.username);
-    console.log(info.password);
+    //const info = JSON.parse(data);
+    console.log(data.username);
+    console.log(data.password);
     /*
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${info.username}';`;
     pool.query(sql, (err, res) => {
