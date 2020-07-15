@@ -15,7 +15,7 @@ function registerUser(data, req, result) {
     let t2 = JSON.stringify(data.username);
     console.log(t1);
     console.log(t2);
-
+    res.status(200).json({ message: 'Success'});
 
     /*
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${data.username}';`;
