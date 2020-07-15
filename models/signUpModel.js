@@ -11,8 +11,14 @@ function registerUser(data, req, result) {
     console.log(data);
     console.log(data.username);
     console.log(data.password);
+    let t1 = data.username.toString();
+    let t2 = JSON.stringify(data.username);
+    console.log(t1);
+    console.log(t2);
 
-    let sql = `SELECT username FROM user_name WHERE USERNAME = '${JSON.stringify(data.username)}';`;
+
+    /*
+    let sql = `SELECT username FROM user_name WHERE USERNAME = '${data.username}';`;
     pool.query(sql, (err, res) => {
         if (err) {
             console.log("Query Error");
@@ -23,7 +29,9 @@ function registerUser(data, req, result) {
             res.status(400).json({ message: `Error: username exists`, data: null });
         }
     });
-    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${JSON.stringify(data.password)}');`;
+    
+
+    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${data.password}');`;
     pool.query(insertPassword, (err, res) => {
         if (err) {
             console.log('Password insertion error');
@@ -31,7 +39,7 @@ function registerUser(data, req, result) {
         }
         console.log('Inserted password into db');
     });
-    let insert = `INSERT INTO user_name (username) VALUES ('${JSON.stringify(data.username)}');`;
+    let insert = `INSERT INTO user_name (username) VALUES ('${data.username}');`;
     pool.query(insert, (err, res) => {
         if (err) {
             console.log('Username insertion error');
@@ -40,6 +48,7 @@ function registerUser(data, req, result) {
         console.log('Inserted username into db');
     });
     res.status(200).json({ message: 'Success'});
+    */
 }
 
 module.exports = {
