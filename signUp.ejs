@@ -25,6 +25,7 @@
         let pswd = document.getElementById('passwd').value;
         const data = { username: `${name}`, password: `${pswd}`};
         console.log(data);
+        console.log(JSON.stringify(data));
         
         fetch('https://arcane-peak-85886.herokuapp.com/signUp', {
             method: 'POST',
