@@ -11,6 +11,7 @@ function registerUser(data) {
     console.log(info.username);
     console.log(info.password);
     console.log('registering user');
+    /*
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${info.username}';`;
     pool.query(sql, (err, res) => {
         if (err) {
@@ -38,6 +39,7 @@ function registerUser(data) {
         }
         console.log('Inserted username into db');
     });
+    */
 }
 
 module.exports = {
