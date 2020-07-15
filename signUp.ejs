@@ -15,6 +15,9 @@
     <input type='password' id='passwd'>
     <br>
     <button onclick='signUp()'>Sign Up</button>
+    <br>
+    <br>
+    <button onclick="window.location.href='/signIn'">Sign up</button>
 </body>
 <script>
     async function signUp() {
@@ -36,6 +39,9 @@
         .then(response => response.json())
         .then(res => {
             console.log('Query successful', res);
+            /*
+            alert that it worked.
+            */
         })
         .catch((err) => {
             console.error('Error:', err);
