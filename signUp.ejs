@@ -40,9 +40,6 @@
         .then(response => response.json())
         .then(res => {
             console.log('Query successful', res);
-            /*
-            alert that it worked.
-            */
            JSON.parse(res);
            if (res.message == 'Success') {
                window.alert('Account Created');
@@ -51,7 +48,7 @@
             window.alert('This username is already in use');
         })
         .catch((err) => {
-            console.error('Error:', err.toString());
+            console.error('Error:', err);
         });
     }
 </script>

@@ -8,12 +8,9 @@ const pool = new Pool({
 
 function registerUser(data, req, result) {
     console.log('registering user');
-    console.log(data);
     console.log(data.username);
     console.log(data.password);
-    let t1 = data.username.toString();
     let t2 = JSON.stringify(data.username);
-    console.log(t1);
     console.log(t2);
     res.status(200).json({ message: 'Success'});
 
