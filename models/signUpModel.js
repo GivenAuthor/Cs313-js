@@ -11,8 +11,10 @@ function registerUser(data, req, result) {
     console.log(data);
     console.log(data.username);
     console.log(data.password);
+    let usnm = data.username.toString();
+    let pswd = data.password.toString();
 
-    let sql = `SELECT username FROM user_name WHERE USERNAME = '${data.username}';`;
+    let sql = `SELECT username FROM user_name WHERE USERNAME = '${usnm}';`;
     pool.query(sql, (err, res) => {
         if (err) {
             console.log("Query Error");
@@ -23,7 +25,7 @@ function registerUser(data, req, result) {
             res.status(400).json({ message: `Error: username exists`, data: null });
         }
     });
-    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${data.password}');`;
+    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${pswd}');`;
     pool.query(insertPassword, (err, res) => {
         if (err) {
             console.log('Password insertion error');
@@ -31,7 +33,7 @@ function registerUser(data, req, result) {
         }
         console.log('Inserted password into db');
     });
-    let insert = `INSERT INTO user_name (username) VALUES ('${data.username}');`;
+    let insert = `INSERT INTO user_name (username) VALUES ('${usnm}');`;
     pool.query(insert, (err, res) => {
         if (err) {
             console.log('Username insertion error');
