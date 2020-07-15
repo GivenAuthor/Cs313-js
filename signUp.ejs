@@ -25,6 +25,9 @@
         
         fetch('https://arcane-peak-85886.herokuapp.com/signUp', {
             method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
             headers: {
                 'Content-Type': 'application/json'
             },
