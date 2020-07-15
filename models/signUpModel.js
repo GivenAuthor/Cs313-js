@@ -6,7 +6,7 @@ const pool = new Pool({
   ssl: true
 });
 
-function registerUser(data, req, result) {
+function registerUser(data, req, res) {
     console.log('registering user');
     console.log(data.username);
     console.log(data.password);
