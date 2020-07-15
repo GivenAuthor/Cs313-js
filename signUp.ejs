@@ -51,7 +51,7 @@
             window.alert('This username is already in use');
         })
         .catch((err) => {
-            console.error('Error:', err);
+            console.error('Error:', JSON.stringify(err));
         });
     }
 </script>
