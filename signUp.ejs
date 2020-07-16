@@ -23,6 +23,10 @@
     async function signUp(url = '') {
         let name = document.getElementById('username').value;
         let pswd = document.getElementById('passwd').value;
+        if (name == '' || pswd == '') {
+                window.alert('Please enter both a username and password');
+                return;
+        }
         const data = { username: `${name}`, password: `${pswd}`};
         console.log(data);
         console.log(JSON.stringify(data));
@@ -37,33 +41,6 @@
         .then((data) => console.log(data))
         .catch((err) => console.log(err))
     }
-        /*
-        const response = await fetch(url, {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data),
-        });
-        return response.json();
-    }
-    signUp('https://arcane-peak-85886.herokuapp.com/signUp',)
-        .then(res => {
-            console.log('Query successful', res);
-           JSON.parse(res);
-           if (res.message == 'Success') {
-               window.alert('Account Created');
-           }
-           else
-            window.alert('This username is already in use');
-        })
-        .catch((err) => {
-            console.error('Error:', err);
-        });
-        */
 
 </script>
 </html>

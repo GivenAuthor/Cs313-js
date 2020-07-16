@@ -11,8 +11,8 @@ function registerUser(req, result) {
     console.log(req.body.username);
     console.log(req.body.password);
 
-    /*
-    let sql = `SELECT username FROM user_name WHERE USERNAME = '${body.username}';`;
+    pool.connect();
+    let sql = `SELECT username FROM user_name WHERE USERNAME = '${req.body.username}';`;
     pool.query(sql, (err, res) => {
         if (err) {
             console.log("Query Error");
@@ -23,8 +23,6 @@ function registerUser(req, result) {
             res.status(400).json({ message: `Error: username exists`, data: null });
         }
     });
-    */
-    pool.connect();
     let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${req.body.password}');`;
     pool.query(insertPassword, (err, res) => {
         if (err) {
