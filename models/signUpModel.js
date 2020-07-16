@@ -6,15 +6,12 @@ const pool = new Pool({
   ssl: true
 });
 
-function registerUser(data, req, res) {
+function registerUser(body, req, res) {
     console.log('registering user');
-    console.log(data.username);
-    console.log(data.password);
-    let t2 = JSON.stringify(data.username);
-    console.log(t2);
-    res.status(200).json({ message: 'Success'});
+    console.log(body.username);
+    console.log(body.password);
 
-    let sql = `SELECT username FROM user_name WHERE USERNAME = '${data.username}';`;
+    let sql = `SELECT username FROM user_name WHERE USERNAME = '${body.username}';`;
     pool.query(sql, (err, res) => {
         if (err) {
             console.log("Query Error");
@@ -25,9 +22,8 @@ function registerUser(data, req, res) {
             res.status(400).json({ message: `Error: username exists`, data: null });
         }
     });
-    
 
-    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${data.password}');`;
+    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${body.password}');`;
     pool.query(insertPassword, (err, res) => {
         if (err) {
             console.log('Password insertion error');
@@ -35,7 +31,7 @@ function registerUser(data, req, res) {
         }
         console.log('Inserted password into db');
     });
-    let insert = `INSERT INTO user_name (username) VALUES ('${data.username}');`;
+    let insert = `INSERT INTO user_name (username) VALUES ('${body.username}');`;
     pool.query(insert, (err, res) => {
         if (err) {
             console.log('Username insertion error');
