@@ -21,7 +21,7 @@ function loginUser(req, result) {
             return console.log(err);
         }
         for (row in res.rows) {
-            if (row.username == name && row.password_contents == password)
+            if (row.username == req.body.name && row.password_contents == req.body.password)
             result.status(200).json({ message: 'Success'});
         }
         result.status(400).json({ message: 'No Match'});
