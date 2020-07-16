@@ -29,7 +29,7 @@ function registerUser(req, result) {
     pool.query(insertPassword, (err, res) => {
         if (err) {
             console.log('Password insertion error');
-            res.status(400).json({ message: `Error: ${err}`, data: null });
+            result.status(400).json({ message: `Error: ${err}`, data: null });
         }
         console.log('Inserted password into db');
     });
@@ -37,11 +37,11 @@ function registerUser(req, result) {
     pool.query(insert, (err, res) => {
         if (err) {
             console.log('Username insertion error');
-            res.status(400).json({ message: `Error: ${err}`, data: null });
+            result.status(400).json({ message: `Error: ${err}`, data: null });
         }
         console.log('Inserted username into db');
     });
-    res.status(200).json({ message: 'Success'});
+    result.status(200).json({ message: 'Success'});
 }
 
 module.exports = {
