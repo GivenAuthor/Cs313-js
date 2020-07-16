@@ -7,6 +7,7 @@ const pool = new Pool({
 });
 
 function registerUser(req, result) {
+    req = JSON.parse(req);
     console.log('registering user');
     console.log(req.username);
     console.log(req.password);
