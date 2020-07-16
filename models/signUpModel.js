@@ -12,7 +12,7 @@ function registerUser(req, result) {
     console.log(req.body.password);
 
     pool.connect();
-    let sql = `SELECT username FROM user_name WHERE USERNAME = '${req.body.username}';`;
+    let sql = `SELECT username FROM user_name WHERE USERNAME = '${body.username}';`;
     pool.query(sql, (err, res) => {
         if (err) {
             console.log("Query Error");

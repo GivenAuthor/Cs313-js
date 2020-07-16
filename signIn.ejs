@@ -20,26 +20,30 @@
     <button onclick="window.location.href='/signUp'">Sign up</button>
 </body>
 <script>
-    async function login() {
-
+    async function signUp(url = '') {
         let name = document.getElementById('name').value;
         let pswd = document.getElementById('passwd').value;
+        if (name == '' || pswd == '') {
+                window.alert('Please enter both a username and password');
+                return;
+        }
         const data = { username: `${name}`, password: `${pswd}`};
+        console.log(data);
+        console.log(JSON.stringify(data));
 
-        fetch('https://arcane-peak-85886.herokuapp.com/', {
-            method: 'POST',
+        fetch('https://arcane-peak-85886.herokuapp.com/signIn', {
+            method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(data)
+        }).then((res) => res.json())
+        .then((data) => {
+            window.alert('Username and Password match');
+            console.log(data)
+            window.location.href=''
         })
-        .then(response => response.json())
-        .then(res => {
-            console.log('Query successful', res);
-        })
-        .catch((error) => {
-            console.error('Error:', err);
-        });
+        .catch((err) => console.log(err))
     }
 </script>
 </html>

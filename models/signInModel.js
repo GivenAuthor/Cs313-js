@@ -6,11 +6,11 @@ const pool = new Pool({
   ssl: true
 });
 
-function loginUser(name, password) {
+function loginUser(req, result) {
     console.log('logging in user');
-    console.log(name);
-    console.log(password);
-    //pool.connect();
+    console.log(req.body.username);
+    console.log(req.body.password);
+    pool.connect();
     let sql = `SELECT user_name.username, account_password.password_contents 
     FROM user_name 
     INNER JOIN account_password 
@@ -22,9 +22,9 @@ function loginUser(name, password) {
         }
         for (row in res.rows) {
             if (row.username == name && row.password_contents == password)
-            res.render('../homepage');
+            result.status(200).json({ message: 'Success'});
         }
-        return false;
+        result.status(400).json({ message: 'No Match'});
     });
 }
 
