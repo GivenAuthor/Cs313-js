@@ -6,10 +6,10 @@ const pool = new Pool({
   ssl: true
 });
 
-function registerUser(body, req, res) {
+function registerUser(req, result) {
     console.log('registering user');
-    console.log(body.username);
-    console.log(body.password);
+    console.log(req.username);
+    console.log(req.password);
 
     /*
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${body.username}';`;
@@ -25,7 +25,7 @@ function registerUser(body, req, res) {
     });
     */
     pool.connect();
-    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${body.password}');`;
+    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${req.password}');`;
     pool.query(insertPassword, (err, res) => {
         if (err) {
             console.log('Password insertion error');
@@ -33,7 +33,7 @@ function registerUser(body, req, res) {
         }
         console.log('Inserted password into db');
     });
-    let insert = `INSERT INTO user_name (username) VALUES ('${body.username}');`;
+    let insert = `INSERT INTO user_name (username) VALUES ('${req.username}');`;
     pool.query(insert, (err, res) => {
         if (err) {
             console.log('Username insertion error');
