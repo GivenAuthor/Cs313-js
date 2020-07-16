@@ -20,14 +20,14 @@
     <button onclick="window.location.href='/'">Sign up</button>
 </body>
 <script>
-    async function signUp() {
+    async function signUp(url = '') {
         let name = document.getElementById('username').value;
         let pswd = document.getElementById('passwd').value;
         const data = { username: `${name}`, password: `${pswd}`};
         console.log(data);
         console.log(JSON.stringify(data));
         
-        fetch('https://arcane-peak-85886.herokuapp.com/signUp', {
+        const response = await fetch(url, {
             method: 'POST',
             mode: 'cors',
             cache: 'no-cache',
@@ -36,8 +36,10 @@
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data),
-        })
-        .then(response => response.json())
+        });
+        return response.json();
+    }
+    signUp('https://arcane-peak-85886.herokuapp.com/signUp',)
         .then(res => {
             console.log('Query successful', res);
            JSON.parse(res);
@@ -50,6 +52,5 @@
         .catch((err) => {
             console.error('Error:', err);
         });
-    }
 </script>
 </html>
