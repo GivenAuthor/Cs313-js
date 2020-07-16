@@ -16,11 +16,11 @@ function registerUser(req, result) {
     pool.query(sql, (err, res) => {
         if (err) {
             console.log("Query Error");
-            res.status(400).json({ message: `Error: ${err}`, data: null });
+            result.status(400).json({ message: `Error: ${err}`, data: null });
         }
         for (row in res.rows) {
             if (row.username == name)
-            res.status(400).json({ message: `Error: username exists`, data: null });
+            result.status(400).json({ message: `Error: username exists`, data: null });
         }
     });
     let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${req.body.password}');`;
