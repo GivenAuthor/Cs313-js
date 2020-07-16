@@ -7,10 +7,9 @@ const pool = new Pool({
 });
 
 function registerUser(req, result) {
-    req = JSON.parse(req);
     console.log('registering user');
-    console.log(req.username);
-    console.log(req.password);
+    console.log(req.body.username);
+    console.log(req.body.password);
 
     /*
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${body.username}';`;
@@ -26,7 +25,7 @@ function registerUser(req, result) {
     });
     */
     pool.connect();
-    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${req.password}');`;
+    let insertPassword = `INSERT INTO account_password (password_contents) VALUES ('${req.body.password}');`;
     pool.query(insertPassword, (err, res) => {
         if (err) {
             console.log('Password insertion error');
@@ -34,7 +33,7 @@ function registerUser(req, result) {
         }
         console.log('Inserted password into db');
     });
-    let insert = `INSERT INTO user_name (username) VALUES ('${req.username}');`;
+    let insert = `INSERT INTO user_name (username) VALUES ('${req.body.username}');`;
     pool.query(insert, (err, res) => {
         if (err) {
             console.log('Username insertion error');
