@@ -14,7 +14,6 @@ function registerUser(data, req, res) {
     console.log(t2);
     res.status(200).json({ message: 'Success'});
 
-    /*
     let sql = `SELECT username FROM user_name WHERE USERNAME = '${data.username}';`;
     pool.query(sql, (err, res) => {
         if (err) {
@@ -45,7 +44,6 @@ function registerUser(data, req, res) {
         console.log('Inserted username into db');
     });
     res.status(200).json({ message: 'Success'});
-    */
 }
 
 module.exports = {
