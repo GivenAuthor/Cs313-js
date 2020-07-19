@@ -17,7 +17,7 @@ function dbPush(req, result) {
     pool.query(sql, (err, res) => {
         if (err) {
             console.log("Note Query Error:");
-            result.status(400).json({ message: `Error: ${err}`, data: null });
+            //result.status(400).json({ message: `Error: ${err}`, data: null });
         }
     });
     let sqlDate = `INSERT INTO day (day_date) VALUES ('${req.body.day}');`;
