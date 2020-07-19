@@ -24,7 +24,9 @@
         let note = document.getElementById('note').value;
         const data = { day: `${date}`, rating: `${rating}`, note: `note`};
 
-        
+        if (date == '' || (rating == '' && note == ''))
+            window.alert('Please enter a date and either a rating or note');
+        else {
         fetch('https://arcane-peak-85886.herokuapp.com/submission', {
             method: 'POST',
             headers: {
@@ -39,6 +41,7 @@
         .catch((err) => {
             console.error('Error:', err);
         });
+    }
     }
 </script>
 </html>
