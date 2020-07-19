@@ -16,21 +16,21 @@ function dbPush(req, result) {
     let sql = `INSERT INTO note (note_contents) VALUES ('${req.body.note}');`;
     pool.query(sql, (err, res) => {
         if (err) {
-            console.log("Query Error:");
+            console.log("Note Query Error:");
             result.status(400).json({ message: `Error: ${err}`, data: null });
         }
     });
     let sqlDate = `INSERT INTO day (day_date) VALUES ('${req.body.day}');`;
     pool.query(sqlDate, (err, res) => {
         if (err) {
-            console.log('Query Error:');
+            console.log('Date Query Error:');
             result.status(400).json({ message: `Error: ${err}`, data: null });
         }
     });
     let sqlRate = `INSERT INTO rating (day_rating) VALUES ('${req.body.rating}');`;
     pool.query(sqlRate, (err, res) => {
         if (err) {
-            console.log('Query Error:');
+            console.log('rate Query Error:');
             result.status(400).json({ message: `Error: ${err}`, data: null });
         }
     });
