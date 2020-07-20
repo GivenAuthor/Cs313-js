@@ -38,11 +38,12 @@
             referrerPolicy: 'no-referrer'
         });
         return response.json();
-    }
+    };
+
     getData('https://arcane-peak-85886.herokuapp.com/homepage',)
         .then(response => {
             console.log(response);
-            console.log(response.result.rows[0]);
+            //console.log(response.result.rows[0]);
 
             let responseNew = Object.entries(response);
             let data;

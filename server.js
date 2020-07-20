@@ -1,7 +1,8 @@
 require('dotenv').config();
+
 const express = require('express');
-let path = require('path');
-let port = process.env.PORT || 8080;
+const path = require('path');
+const port = process.env.PORT || 8080;
 const app = express();
 const http = require('http');
 const signInController = require('./controllers/signInController');
@@ -12,18 +13,19 @@ const homepageController = require('./controllers/homepageController');
 const homepageModel = require('./models/homepageModel');
 const submissionController = require('./controllers/submissionController');
 const submissionModel = require('./models/submissionModel');
+
 app.set('view engine', 'ejs');
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use('/public', express.static('./public/'));
 
 app.get('/db', async (req, res) => {
   const { Pool } = require('pg');
   const connectionString = process.env.DATABASE_URL;
   const pool = new Pool({
-  connectionString: connectionString,
-  ssl: true
-});
+    connectionString: connectionString,
+    ssl: true
+  });
   console.log(connectionString);
   pool.query('SELECT * FROM username;', (err, res) => {
     if (err) throw err;
