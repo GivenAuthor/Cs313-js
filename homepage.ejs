@@ -42,7 +42,7 @@
             console.log(response);
             console.log(response.result.rows[0]);
             var i = 0;
-            response.result.forEach(rows => {
+            response.result.forEach(rows[i] => {
                 document.getElementById('itemTable').innerHTML += "<br>" + rows[i].note_contents + "     " + rows[i].day_rating + "     " + rows[i].day_date;
                 i++;
             });
