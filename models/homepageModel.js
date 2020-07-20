@@ -16,15 +16,9 @@ function dbRequest(req, res) {
     pool.query(sql, (err, result) => {
       if (err)
         res.status(400).json({ message: `Error: ${err}`, data: null });
-      else {
-        let data = [];
-        result.rows.forEach(row => {
-          data.push(row);
-        });
-
-        res.status(200).json({ message: 'Success', data: data });
-      }
-
+      
+      console.log(result);
+      res.status(200).json({ message: 'Success', result: result });
     });
 }
 
