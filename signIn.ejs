@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
+    <link rel="stylesheet" href="./public/globalStyle.css">
+    <link rel="stylesheet" href="./public/signInStyle.css">
 </head>
+
 <body>
     <h1>Welcome! Please Sign In</h1>
     <label for='name'>Username:</label>
     <input type='text' id='name'>
     <br>
+    <br>
     <label for='passwd'>Password:</label>
-    <input  type='password' id='passwd'>
+    <input type='password' id='passwd'>
+    <br>
     <br>
     <button onclick='login()'>Sign in</button>
 
     <br>
-    <h3>No account?</h3>
+    <h3>No Account?</h3>
     <button onclick="window.location.href='/signUp'">Sign up</button>
 </body>
 <script>
@@ -24,10 +30,10 @@
         let name = document.getElementById('name').value;
         let pswd = document.getElementById('passwd').value;
         if (name == '' || pswd == '') {
-                window.alert('Please enter both a username and password');
-                return;
+            window.alert('Please enter both a username and password');
+            return;
         }
-        const data = { username: `${name}`, password: `${pswd}`};
+        const data = { username: `${name}`, password: `${pswd}` };
         console.log(data);
         console.log(JSON.stringify(data));
 
@@ -38,11 +44,12 @@
             },
             body: JSON.stringify(data)
         }).then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-            window.location.href='/homepage';
-        })
-        .catch((err) => console.log(err))
+            .then((data) => {
+                console.log(data)
+                window.location.href = '/homepage';
+            })
+            .catch((err) => console.log(err))
     }
 </script>
+
 </html>

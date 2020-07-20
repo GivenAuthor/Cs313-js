@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="./public/globalStyle.css">
+    <link rel="stylesheet" href="./public/signUpStyle.css">
 </head>
+
 <body>
-    <h3>Please enter a username and passsword</h3>
+    <h3>Please Enter a Username and Passsword</h3>
     <br>
     <label for='username'>Username:</label>
     <input type='text' id='username'>
     <br>
+    <br>
     <label for='passwd'>Password:</label>
     <input type='password' id='passwd'>
+    <br>
     <br>
     <button onclick='signUp()'>Sign Up</button>
     <br>
     <br>
-    <button onclick="window.location.href='/'">Sign up</button>
+    <button onclick="window.location.href='/'">Back to sign in</button>
 </body>
 <script>
     async function signUp(url = '') {
         let name = document.getElementById('username').value;
         let pswd = document.getElementById('passwd').value;
         if (name == '' || pswd == '') {
-                window.alert('Please enter both a username and password');
-                return;
+            window.alert('Please enter both a username and password');
+            return;
         }
-        const data = { username: `${name}`, password: `${pswd}`};
+        const data = { username: `${name}`, password: `${pswd}` };
         console.log(data);
         console.log(JSON.stringify(data));
 
@@ -38,11 +44,13 @@
             },
             body: JSON.stringify(data)
         }).then((res) => res.json())
-        .then((data) => {
-            window.alert('Username and Password successfully submitted');
-            console.log(data)})
-        .catch((err) => console.log(err))
+            .then((data) => {
+                window.alert('Username and Password successfully submitted');
+                console.log(data)
+            })
+            .catch((err) => console.log(err))
     }
 
 </script>
+
 </html>

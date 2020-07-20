@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="./public/globalStyle.css">
+    <link rel="stylesheet" href="./public/submissionStyle.css">
 </head>
+
 <body>
-        <label for='date'>Date:</label>
-        <input type='date' id='date' name='date'>
-        <br>
-        <label for='rating'>Day rating:</label>
-        <input type='number' id='rating' name='rating'>
-        <br>
-        <label for='note'>Note info:</label>
-        <input type='text' id='note' name='note'>
-        <br>
-        <button onclick='submit()'>Submit</button>
+    <h1>Please enter the information required</h1>
+    <label for='date'>Date:</label>
+    <input type='date' id='date' name='date'>
+    <br>
+    <br>
+    <label for='rating'>Day rating:</label>
+    <input type='number' id='rating' name='rating'>
+    <br>
+    <br>
+    <label for='note'>Note info:</label>
+    <input type='text' id='note' name='note'>
+    <br>
+    <br>
+    <button onclick='submit()'>Submit</button>
 </body>
 <script>
     async function submit() {
         let date = document.getElementById('date').value;
         let rating = document.getElementById('rating').value;
         let note = document.getElementById('note').value;
-        const data = { day: `${date}`, rating: `${rating}`, note: `note`};
+        const data = { day: `${date}`, rating: `${rating}`, note: `note` };
 
         if (date == '' || (rating == '' && note == ''))
             window.alert('Please enter a date and either a rating or note');
         else {
-        fetch('https://arcane-peak-85886.herokuapp.com/submission', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(res => {
-            console.log('Query successful', res);
-        })
-        .catch((err) => {
-            console.error('Error:', err);
-        });
-    }
+            fetch('https://arcane-peak-85886.herokuapp.com/submission', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.json())
+                .then(res => {
+                    console.log('Query successful', res);
+                })
+                .catch((err) => {
+                    console.error('Error:', err);
+                });
+        }
     }
 </script>
+
 </html>

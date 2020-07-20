@@ -1,0 +1,22 @@
+html {
+    font-family: open-sans, sans-serif;
+    color: deepskyblue;
+}
+
+body {
+    margin: auto 25%;
+    min-width: 900px;
+    background-color: #403f3e;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    color: #3232a0;
+}
+
+th {
+    padding-right: 7px;
+}
