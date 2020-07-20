@@ -54,8 +54,8 @@
 
             let data = response.result;
             console.log(data);
+            console.log(response.result.rows[0].day_date);
 
-            console.log(data.row.day_date);
             let rows = data.map(row => ({
                 title: row.note_contents,
                 rating: row.day_rating,
