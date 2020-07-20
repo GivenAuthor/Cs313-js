@@ -58,7 +58,7 @@
             let rows = data.map(row => ({
                 title: row.note_contents,
                 rating: row.day_rating,
-                date: new Date(row.day_date),
+                date: new Date(row.day_date.toString()),
             }));
 
             let table = document.getElementById('itemTable');
