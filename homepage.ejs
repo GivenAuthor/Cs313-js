@@ -10,7 +10,7 @@
 <body>
     <h1>Welcome</h1>
     <br>
-    <button id='btn' type="submit" onclick='getData()'>See previous days</button>
+    <button id='btn' type="submit">See previous days</button>
     <br>
     <h2>Add data for the day</h2>
     <form action='/submission' method='GET'>
@@ -42,53 +42,42 @@
 
     getData('https://arcane-peak-85886.herokuapp.com/homepage',)
         .then(response => {
-            if (!response || !response.result || !response.result) {
+            if (!response || !response.result) {
                 console.log(response);
                 console.error('response result is undefined');
                 return;
             }
 
             console.log(response);
-            //console.log(response.result.rows[0]);
-
-
 
             let data = response.result;
-
-            // let responseNew = Object.entries(response);
-            // let data;
-            // responseNew.forEach(([key, value]) => {
-            //     if (key == 'data') {
-            //         data = value;
-            //     }
-            // });
             console.log(data);
-            let rows = data.map(row => {
+
+            let rows = data.map(row => ({
                 title: row.note_contents,
-                    rating: row.day_rating,
-                        date: Date(row.day_date),
-                }
-            });
+                rating: row.day_rating,
+                date: Date(row.day_date),
+            }));
 
-    let table = document.getElementById('itemTable');
-    if (table != null) {
-        rows.forEach(row => {
-            let tr = document.createElement('tr');
-            let td1 = document.createElement('td');
-            let td2 = document.createElement('td');
-            let td3 = document.createElement('td');
+            let table = document.getElementById('itemTable');
+            if (table != null) {
+                rows.forEach(row => {
+                    let tr = document.createElement('tr');
+                    let td1 = document.createElement('td');
+                    let td2 = document.createElement('td');
+                    let td3 = document.createElement('td');
 
-            td1.innerHTML = row.title;
-            td2.innerHTML = row.rating;
-            td3.innerHTML = row.date;
+                    td1.innerHTML = row.title;
+                    td2.innerHTML = row.rating;
+                    td3.innerHTML = row.date;
 
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            tr.appendChild(td3);
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
 
-            table.appendChild(tr);
-        });
-    }
+                    table.appendChild(tr);
+                });
+            }
         });
 </script>
 
