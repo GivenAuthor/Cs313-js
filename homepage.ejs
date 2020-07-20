@@ -55,11 +55,13 @@
             let data = response.result;
             console.log(data);
 
+            console.log(data.row.day_date);
             let rows = data.map(row => ({
                 title: row.note_contents,
                 rating: row.day_rating,
                 date: Date(row.day_date),
             }));
+            console.log(row.date);
 
             let table = document.getElementById('itemTable');
             if (table != null) {
